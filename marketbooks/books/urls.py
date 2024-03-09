@@ -8,7 +8,6 @@ urlpatterns = [
     path('product/<int:book_id>/', views.product_detail, name='product_detail'),
     path('download_book/<int:book_id>/', views.download_book, name='download_book'),
 
-
     path('payment-success/<int:book_id>/', views.PaymentSuccessful, name='payment-success'),
     path('payment-failed/<int:pbook_id>/', views.paymentFailed, name='payment-failed'),
 
@@ -16,7 +15,10 @@ urlpatterns = [
     path('category/<int:category_id>/', views.Category_book, name='category_books'),
 
 
+  # Login authentications
 
+    # path('registration/', views.registration, name='registration'),
+    path('register/', views.CustomRegistrationView.as_view(), name='register'),
 
 
 

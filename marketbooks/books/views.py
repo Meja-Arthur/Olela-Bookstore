@@ -11,6 +11,10 @@ from django.conf import settings
 import uuid
 from django.http import HttpResponseServerError
 
+
+from django.views import View
+from . forms import CustomerRegistrationForm
+from django.contrib import messages
 # Create your views here.
 
 
@@ -106,10 +110,19 @@ def Category_book(request, category_id):
 
 
 
+class CustomRegistrationView(View):
+    def get(self, request, *args, **kwargs):
+        form = CustomerRegistrationForm()
+        return render(request, 'register.html', locals())
+    def post(self, request):
+        form = CustomerRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Congratulation! User Registration was  successfully.")
 
-
-
-
+        else:
+            messages.error(request, "Invalid cridentials please try again")
+        return render(request, 'register.html', locals())
 
 
 
