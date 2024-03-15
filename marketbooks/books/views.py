@@ -1,8 +1,8 @@
 
 from django.http import HttpResponse
 from django.template import loader
-from .models import Book
-from .models import BooksCategory
+from .models import Book, BooksCategory, Customer
+
 from django.urls import reverse
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -13,7 +13,7 @@ from django.http import HttpResponseServerError
 
 
 from django.views import View
-from . forms import CustomerRegistrationForm
+from .forms import CustomerRegistrationForm, CustomerprofileForm
 from django.contrib import messages
 # Create your views here.
 
@@ -124,6 +124,42 @@ class CustomRegistrationView(View):
             messages.error(request, "Invalid cridentials please try again")
         return render(request, 'register.html', locals())
 
+
+class ProfileView(View):
+    def get(self,request):
+        form = CustomerprofileForm()
+
+        return render(request, 'profile.html', locals())
+    def post(self,request):
+        form = CustomerprofileForm(request.POST)
+        if form.is_valid():
+            user = request.user
+            name = form.cleaned_data['name']
+            locality = form.cleaned_data['locality']
+            city = form.cleaned_data['city']
+            mobile = form.cleaned_data['mobile']
+            state = form.cleaned_data['state']
+            zipcode = form.cleaned_data['zipcode']
+
+
+            reg = Customer(user=user, name=name, locality=locality, city=city, mobile=mobile, state=state, zipcode=zipcode)
+            reg.save()
+            messages.success(request, "Congratulation! profile was  successfully saved.")
+        else:
+            messages.error(request, "Invalid cridentials please try again")
+
+        return render(request, 'profile.html', locals())
+
+def Address(request):
+    try:
+        add = Customer.objects.filter(user=request.user)
+        return render(request, 'address.html', locals())
+
+    except Exception as e:
+            # Log the exception for debugging purposes
+            print(f"Error in product_detail view: {e}")
+            # Return a server error response
+            return HttpResponseServerError("Sorry, something went wrong. Please try again later.")
 
 
 

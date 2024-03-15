@@ -1,5 +1,9 @@
+from django.contrib.auth.forms import PasswordResetForm
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth_view
+from .forms import LoginForm, PasswordResetForm
+
 
 app_name = 'books'
 
@@ -14,11 +18,16 @@ urlpatterns = [
     path('shop/', views.Shop, name='shop'),
     path('category/<int:category_id>/', views.Category_book, name='category_books'),
 
+    path('profile/', views.ProfileView.as_view(), name='profile'),
+    path('address/', views.Address, name='address'),
+
 
   # Login authentications
-
     # path('registration/', views.registration, name='registration'),
     path('register/', views.CustomRegistrationView.as_view(), name='register'),
+    path('login/', auth_view.LoginView.as_view(template_name='login.html', authentication_form=LoginForm), name='login'),
+    path('password-reset/', auth_view.PasswordResetView.as_view(
+        template_name='password_reset.html', form_class=PasswordResetForm), name='password_reset'),
 
 
 
