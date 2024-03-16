@@ -28,6 +28,7 @@ urlpatterns = [
     path('login/', auth_view.LoginView.as_view(template_name='login.html', authentication_form=LoginForm), name='login'),
     path('password-reset/', auth_view.PasswordResetView.as_view(
         template_name='password_reset.html', form_class=PasswordResetForm), name='password_reset'),
+    path('logout/', views.logout_view, name='logout'),
 
 
 

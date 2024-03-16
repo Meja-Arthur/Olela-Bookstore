@@ -2,6 +2,8 @@
 from django.http import HttpResponse
 from django.template import loader
 from .models import Book, BooksCategory, Customer
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 from django.urls import reverse
 from django.shortcuts import render, get_object_or_404, redirect
@@ -22,7 +24,7 @@ def Homepage(request):
     books = Book.objects.order_by('-created_at')[:8]
     return render(request, 'index.html', {'books': books})
 
-
+@login_required
 def product_detail(request, book_id):
     try:
         book = get_object_or_404(Book, id=book_id)
@@ -55,6 +57,8 @@ def product_detail(request, book_id):
         print(f"Error in product_detail view: {e}")
         # Return a server error response
         return HttpResponseServerError("Sorry, something went wrong. Please try again later.")
+
+
 def PaymentSuccessful(request, book_id):
     book = Book.objects.get(id=book_id)
     return render(request, 'payment-success.html', {'book': book})
@@ -65,7 +69,7 @@ def paymentFailed(request, book_id):
 
 
 
-
+@login_required
 def download_book(request, book_id):
     try:
         book = get_object_or_404(Book, pk=book_id)
@@ -126,9 +130,9 @@ class CustomRegistrationView(View):
 
 
 class ProfileView(View):
+
     def get(self,request):
         form = CustomerprofileForm()
-
         return render(request, 'profile.html', locals())
     def post(self,request):
         form = CustomerprofileForm(request.POST)
@@ -150,6 +154,8 @@ class ProfileView(View):
 
         return render(request, 'profile.html', locals())
 
+
+@login_required
 def Address(request):
     try:
         add = Customer.objects.filter(user=request.user)
@@ -160,6 +166,18 @@ def Address(request):
             print(f"Error in product_detail view: {e}")
             # Return a server error response
             return HttpResponseServerError("Sorry, something went wrong. Please try again later.")
+
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
+
+
+
+
+
+
 
 
 

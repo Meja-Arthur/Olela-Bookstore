@@ -2,6 +2,17 @@
 {% load static %}
 
 {% block content %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/vendor/select2/vendor.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/base1.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="{% static 'admin/js/modernizr.js' %}"></script>
+
+
  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -87,7 +98,6 @@
     });
 </script>
 
-
 <section class="ftco-section bg-light">
     	<div class="container">
 				<div class="row justify-content-center mb-3 pb-3">
@@ -141,13 +151,472 @@
     	</div>
     </section>
 
-<div class="container" style="display: flex; align-items: center; justify-content: center; margin-bottom: 70px;">
-  <img style="width: 450px; height: auto; margin-right: 20px;" class="image" src="{% static 'admin/images/lib1.jpeg' %}" alt="Your Image">
-  <div class="text" style="max-width: 50%;">
-    <h2>About Olela Stores</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac velit malesuada, feugiat nisi sed, fermentum magna. Nam nec nisi sit amet tortor fermentum finibus.</p>
+<section id="products" class="product-store position-relative padding-xlarge pb-0" style="margin-bottom: 30px; margin-top: 0px;">
+      <div class="container display-header d-flex flex-wrap justify-content-between pb-4">
+        <h3 class="mt-3">Best selling Items</h3>
+        <div class="btn-right d-flex flex-wrap align-items-center">
+          <a href="shop.html" class="btn me-5">View all items →</a>
+          <div class="swiper-buttons">
+            <button class="swiper-prev product-carousel-prev me-2">
+              <svg width="41" height="41"><use xlink:href="#angle-left"></use></svg>
+            </button>
+            <button class="swiper-next product-carousel-next">
+              <svg width="41" height="41"><use xlink:href="#angle-right"></use></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="swiper product-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item6.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Whispersong</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item6.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Starlight Secrets</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item6.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Shadow Dance</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item6.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Crimson Destiny</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item6.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Enchanted Sands</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item6.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Misty Meadows</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item6.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Whimsical Whispers</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item6.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Twilight Tales</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="about" style="margin-bottom: 35px; margin-top: 60px;">
+  <div class="container">
+    <div class="row position-relative">
+      <div class="col-lg-8">
+        <div class="image-holder">
+          <img src="{% static 'admin/images/single-image3.jpg' %}" alt="single" class="single-image img-fluid">
+        </div>
+      </div>
+      <div class="about-content bg-gray col-lg-4 m-auto top-0 end-0 bottom-0">
+        <h3 class="py-3">Who are we</h3>
+        <p>Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta. Ut nisl, tortor, aliquam blandit vitae vehicula vivamus leo nullam urna, scelerisque unc lectus phasellus adipiscing arcu. Tristique facilisis nunc consectetur at tempor.</p>
+        <a href="/about" class="btn">About us →</a>
+      </div>
+    </div>
   </div>
-</div>
+</section>
+
+ <section id="products" class="product-store padding-xlarge pt-0 position-relative">
+      <div class="container display-header d-flex flex-wrap justify-content-between pb-4">
+        <h3 class="mt-3">Recommended</h3>
+        <div class="btn-right d-flex flex-wrap align-items-center">
+          <a href="shop.html" class="btn me-5">View all items →</a>
+          <div class="swiper-buttons">
+            <button class="swiper-prev product-carousel-prev2 me-2">
+              <svg width="31" height="31"><use xlink:href="#angle-left"></use></svg>
+            </button>
+            <button class="swiper-next product-carousel-next2">
+              <svg width="31" height="31"><use xlink:href="#angle-right"></use></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="swiper product-swiper2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item6.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="#">Aetherial Alchemy</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item7.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">The Lost Labyrinth</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item8.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Crystal Caverns</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item9.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Scarlet Secrets</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item10.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Starry Horizons</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item2.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Dance of Fireflies</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item4.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Siren's Song</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-card">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/product-item3.jpg' %}" alt="product-item" class="img-fluid">
+              </div>
+              <div class="card-detail text-center pt-3 pb-2">
+                <h5 class="card-title fs-4 text-uppercase m-0">
+                  <a href="single-product.html">Misty Mirage</a>
+                </h5>
+                <span class="item-price text-primary fs-4">$870</span>
+                <div class="cart-button mt-1">
+                  <a href="#" class="btn">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+ <section id="faqs">
+      <div class="container">
+        <div class="row">
+          <div class="offset-md-2 col-md-8">
+            <h3 class="text-center mb-5">Some FAQs</h3>
+            <div class="accordion accordion-flush" id="accordionFlush">
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="flush-headingOne3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                    What genres of books can I expect to find in your bookstore?
+                  </button>
+                </h4>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <p>Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta aliquam blandit vitae vehicula leo nullam urna, scelerisque unc lectus.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="flush-headingTwo3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="true" aria-controls="flush-collapseTwo">
+                    Do you offer a book ordering service for titles not available in-store?
+                  </button>
+                </h4>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <p>Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta aliquam blandit vitae vehicula leo nullam urna, scelerisque unc lectus.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="flush-headingThree3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="true" aria-controls="flush-collapseThree">
+                    Are there any discounts or loyalty programs available for frequent customers?
+                  </button>
+                </h4>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <p>Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta aliquam blandit vitae vehicula leo nullam urna, scelerisque unc lectus.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="flush-headingFour3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="true" aria-controls="flush-collapseFour">
+                    Can I reserve a book in advance before visiting the store?
+                  </button>
+                </h4>
+                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <p>Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta aliquam blandit vitae vehicula leo nullam urna, scelerisque unc lectus.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="flush-headingFive3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="true" aria-controls="flush-collapseFive">
+                    Do you host book clubs or author events at your bookstore?
+                  </button>
+                </h4>
+                <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <p>Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta aliquam blandit vitae vehicula leo nullam urna, scelerisque unc lectus.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ <section id="banner" class="padding-xlarge">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-5">
+            <div class="flex-column flex-md-row d-flex justify-content-start h-100">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/banner-img1.png' %}" alt="product-img" class="img-fluid mb-3">
+              </div>
+              <div class="banner-content-text ms-md-4 d-flex align-items-center">
+                <div class="banner-text">
+                  <h3>Spiritual</h3>
+                  <p>This book is specially designed.</p>
+                  <a href="shop.html" class="btn">Shop collection →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-5">
+            <div class="flex-column flex-md-row d-flex justify-content-start h-100">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/banner-img2.png' %}" alt="product-img" class="img-fluid mb-3">
+              </div>
+              <div class="banner-content-text ms-md-4 d-flex align-items-center">
+                <div class="banner-text">
+                  <h3>Life</h3>
+                  <p>This book is specially designed.</p>
+                  <a href="shop.html" class="btn">Shop collection →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 mb-5">
+            <div class="flex-column flex-md-row d-flex justify-content-start h-100">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/banner-img3.png' %}" alt="product-img" class="img-fluid mb-3">
+              </div>
+              <div class="banner-content-text ms-md-4 d-flex align-items-center">
+                <div class="banner-text">
+                  <h3>Peaceful</h3>
+                  <p>This book is specially designed.</p>
+                  <a href="shop.html" class="btn">Shop collection →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-5">
+            <div class="flex-column flex-md-row d-flex justify-content-start h-100">
+              <div class="image-holder">
+                <img src="{% static 'admin/images/banner-img4.png' %}" alt="product-img" class="img-fluid mb-3">
+              </div>
+              <div class="banner-content-text ms-md-4 d-flex align-items-center">
+                <div class="banner-text">
+                  <h3>Nature</h3>
+                  <p>This book is specially designed.</p>
+                  <a href="shop.html" class="btn">Shop collection →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
 
  <section class="ftco-gallery">
     	<div class="container">
@@ -207,6 +676,57 @@
     </section>
 
 
+
+
+ <style>
+        /* Container for the section */
+        .about-section {
+            position: relative;
+            display: inline-block;
+
+        }
+
+        /* Style the image */
+        .image-holder img {
+            max-width: 100%;
+            height: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style the text content */
+        .about-content {
+            position: absolute;
+            top: 0; /* Position the text at the top */
+            left: 70%;
+            transform: translateX(-50%); /* Center horizontally */
+            background-color: darkorange;
+             /*background-color: rgba(255, 255, 255, 0.8);*/
+            padding: 20px;
+            border-radius: 10px;
+            /*text-align: center;*/
+        }
+
+        .about-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .about-content a.btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
 
 
 
