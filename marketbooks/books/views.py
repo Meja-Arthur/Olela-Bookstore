@@ -25,9 +25,9 @@ def Homepage(request):
     return render(request, 'index.html', {'books': books})
 
 @login_required
-def product_detail(request, book_id):
+def product_detail(request, slug):
     try:
-        book = get_object_or_404(Book, id=book_id)
+        book = get_object_or_404(Book, slug=slug)
 
         host = request.get_host()
 
@@ -38,8 +38,8 @@ def product_detail(request, book_id):
             'invoice': uuid.uuid4(),
             'currency_code': 'USD',
             'notify_url': f"http://{host}{reverse('paypal-ipn')}",
-            'return_url': f"http://{host}/payment-success/{book.id}/",
-            'cancel_url': f"http://{host}/payment-failed/{book.id}/",
+            'return_url': f"http://{host}/payment-success/{book.slug}/",
+            'cancel_url': f"http://{host}/payment-failed/{book.slug}/",
 
         }
 
@@ -59,20 +59,20 @@ def product_detail(request, book_id):
         return HttpResponseServerError("Sorry, something went wrong. Please try again later.")
 
 
-def PaymentSuccessful(request, book_id):
-    book = Book.objects.get(id=book_id)
+def PaymentSuccessful(request, slug):
+    book = Book.objects.get(slug=slug)
     return render(request, 'payment-success.html', {'book': book})
 
-def paymentFailed(request, book_id):
-    book = Book.objects.get(id=book_id)
+def paymentFailed(request, slug):
+    book = Book.objects.get(slug=slug)
     return render(request, 'payment-failed.html', {'book': book})
 
 
 
 @login_required
-def download_book(request, book_id):
+def download_book(request, slug):
     try:
-        book = get_object_or_404(Book, pk=book_id)
+        book = get_object_or_404(Book, slug=slug)
         file_path = book.file.path
         with open(file_path, 'rb') as f:
             response = HttpResponse(f.read(), content_type='application/pdf')

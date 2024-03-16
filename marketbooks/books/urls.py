@@ -9,11 +9,12 @@ app_name = 'books'
 
 urlpatterns = [
     path('', views.Homepage, name='index'),
-    path('product/<int:book_id>/', views.product_detail, name='product_detail'),
-    path('download_book/<int:book_id>/', views.download_book, name='download_book'),
+    path('product/<slug:slug>/', views.product_detail, name='product_detail'),
 
-    path('payment-success/<int:book_id>/', views.PaymentSuccessful, name='payment-success'),
-    path('payment-failed/<int:pbook_id>/', views.paymentFailed, name='payment-failed'),
+    path('download_book/<slug:slug>/', views.download_book, name='download_book'),
+
+    path('payment-success/<slug:slug>/', views.PaymentSuccessful, name='payment-success'),
+    path('payment-failed/<slug:slug>/', views.paymentFailed, name='payment-failed'),
 
     path('shop/', views.Shop, name='shop'),
     path('category/<int:category_id>/', views.Category_book, name='category_books'),

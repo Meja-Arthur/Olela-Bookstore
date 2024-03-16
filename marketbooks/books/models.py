@@ -1,5 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils.text import slugify
+
+
 
 STATE_CHOICES = (
     ('AL', 'Alabama'),
@@ -54,7 +57,6 @@ STATE_CHOICES = (
     ('WY', 'Wyoming'),
 )
 
-
 class BooksCategory(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField(blank=True)
@@ -68,6 +70,8 @@ class Book(models.Model):
      author = models.CharField(max_length=100)
      description = models.TextField(blank=True)
      price = models.DecimalField(max_digits=10, decimal_places=2)
+     slug = models.SlugField(unique=True, default='')
+
      image = models.ImageField(upload_to='book_images/', blank=True, null=True)
      file = models.FileField(upload_to='books/')
      created_at = models.DateTimeField(auto_now_add=True)
@@ -81,6 +85,16 @@ class Book(models.Model):
          Custom method to filter books by price range.
          """
          return cls.objects.filter(price__gte=min_price, price__lte=max_price)
+
+     def save(self, *args, **kwargs):
+         """
+         Override the save method to automatically generate a slug based on the title.
+         """
+         if not self.slug:
+             self.slug = slugify(self.title)
+         super().save(*args, **kwargs)
+
+
 
 
 
@@ -98,6 +112,3 @@ class Customer(models.Model):
 
 
 
-class john(models.Model):
-    first_name = models.CharField(max_length=20)
-    last_name = models.CharField(max_length=20)
