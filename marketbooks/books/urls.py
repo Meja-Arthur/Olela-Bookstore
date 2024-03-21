@@ -9,6 +9,8 @@ app_name = 'books'
 
 urlpatterns = [
     path('', views.Homepage, name='index'),
+
+
     path('product/<slug:slug>/', views.product_detail, name='product_detail'),
 
     path('download_book/<slug:slug>/', views.download_book, name='download_book'),

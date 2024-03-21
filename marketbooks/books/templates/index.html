@@ -205,19 +205,19 @@
      <h3 style="text-align: center;">Must Read Books</h3>
     <div class="g-scrolling-carousel">
         <div class="items">
-            {% for book in books %}
+            {% for bk in must_read_books %}
             <div class="image-item">
 
                 <a href="/product/{{ book.slug }}/">
 
-                     {% if book.image %}
-                    <img src="{{ book.image.url }}">
+                     {% if bk.image %}
+                    <img src="{{ bk.image.url }}">
                      {% endif %}
 
                     <div class="image-info">
-                        <h2>{{ book.title }}</h2>
-                        <p>Price:${{ book.price }}</p>
-                        <p>Author: John Doe</p>
+                        <h2>{{ bk.title }}</h2>
+                        <p>Price:${{ bk.price }}</p>
+                        <p>Author:{{ bk.author }}</p>
                     </div>
                 </a>
             </div>
@@ -281,7 +281,7 @@
      <h3 style="text-align: center;">Recommended Books </h3>
     <div class="g-scrolling-carousel">
         <div class="items">
-            {% for book in books %}
+            {% for book in recommended_books %}
             <div class="image-item">
 
                 <a href="/product/{{ book.slug }}/">
@@ -293,7 +293,7 @@
                     <div class="image-info">
                         <h2>{{ book.title }}</h2>
                         <p>Price:${{ book.price }}</p>
-                        <p>Author: John Doe</p>
+                        <p>Author: {{ book.author }}</p>
                     </div>
                 </a>
             </div>

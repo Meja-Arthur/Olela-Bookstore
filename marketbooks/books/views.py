@@ -22,7 +22,18 @@ from django.contrib import messages
 
 def Homepage(request):
     books = Book.objects.order_by('-created_at')[:8]
-    return render(request, 'index.html', {'books': books})
+    recommended_books = Book.get_recommended_books()
+    must_read_books = Book.get_must_read_books()
+
+    context = {
+        'books': books,
+        'recommended_books': recommended_books,
+        'must_read_books': must_read_books
+    }
+    return render(request, 'index.html', context)
+
+
+
 
 @login_required
 def product_detail(request, slug):
@@ -91,6 +102,7 @@ def Shop(request):
     categories = BooksCategory.objects.all()
 
     #Filter books based on price range if the form is submitted
+    #
 
     min_price = request.GET.get('min_price')
     max_price = request.GET.get('max_price')
